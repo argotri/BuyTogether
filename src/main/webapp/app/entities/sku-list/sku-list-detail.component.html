@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="skuList">
+            <h2><span>Sku List</span> {{skuList.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Sku Code</span></dt>
+                <dd>
+                    <span>{{skuList.skuCode}}</span>
+                </dd>
+                <dt><span>Added By</span></dt>
+                <dd>
+                    <span>{{skuList.addedBy}}</span>
+                </dd>
+                <dt><span>Sku Bundle</span></dt>
+                <dd>
+                    <div *ngIf="skuList.skuBundle">
+                        <a [routerLink]="['/sku-bundle', skuList.skuBundle?.id, 'view']">{{skuList.skuBundle?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sku-list', skuList.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-sku-list-heading">Create or edit a Sku List</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!skuList.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="skuList.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_skuCode">Sku Code</label>
+                    <input type="text" class="form-control" name="skuCode" id="field_skuCode"
+                        [(ngModel)]="skuList.skuCode" required/>
+                    <div [hidden]="!(editForm.controls.skuCode?.dirty && editForm.controls.skuCode?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.skuCode?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_addedBy">Added By</label>
+                    <input type="text" class="form-control" name="addedBy" id="field_addedBy"
+                        [(ngModel)]="skuList.addedBy" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_skuBundle">Sku Bundle</label>
+                    <select class="form-control" id="field_skuBundle" name="skuBundle" [(ngModel)]="skuList.skuBundle" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="skuBundleOption.id === skuList.skuBundle?.id ? skuList.skuBundle : skuBundleOption" *ngFor="let skuBundleOption of skubundles; trackBy: trackSkuBundleById">{{skuBundleOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

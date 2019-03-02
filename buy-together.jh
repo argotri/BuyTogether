@@ -1,0 +1,20 @@
+
+
+entity SkuList {
+	skuCode String required,
+    addedBy String
+}
+
+entity SkuBundle{
+	parentSku String required,
+    score Float,
+    source Source
+}
+
+relationship OneToMany{
+	SkuBundle{parentSku} to SkuList
+}
+
+enum Source {
+    MANUAL_INPUT , SYSTEM_INPUT
+}

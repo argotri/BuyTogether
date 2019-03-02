@@ -41,8 +41,8 @@ import com.gdn.qa.hackathon.buytogether.domain.enumeration.Source;
 @SpringBootTest(classes = BuyTogetherApp.class)
 public class SkuBundleResourceIntTest {
 
-    private static final String DEFAULT_PARENT_SKU = "AAAAAAAAAA";
-    private static final String UPDATED_PARENT_SKU = "BBBBBBBBBB";
+    private static final String DEFAULT_SKU = "AAAAAAAAAA";
+    private static final String UPDATED_SKU = "BBBBBBBBBB";
 
     private static final Float DEFAULT_SCORE = 1F;
     private static final Float UPDATED_SCORE = 2F;
@@ -92,7 +92,7 @@ public class SkuBundleResourceIntTest {
      */
     public static SkuBundle createEntity(EntityManager em) {
         SkuBundle skuBundle = new SkuBundle()
-            .parentSku(DEFAULT_PARENT_SKU)
+            .sku(DEFAULT_SKU)
             .score(DEFAULT_SCORE)
             .source(DEFAULT_SOURCE);
         return skuBundle;
@@ -118,7 +118,7 @@ public class SkuBundleResourceIntTest {
         List<SkuBundle> skuBundleList = skuBundleRepository.findAll();
         assertThat(skuBundleList).hasSize(databaseSizeBeforeCreate + 1);
         SkuBundle testSkuBundle = skuBundleList.get(skuBundleList.size() - 1);
-        assertThat(testSkuBundle.getParentSku()).isEqualTo(DEFAULT_PARENT_SKU);
+        assertThat(testSkuBundle.getSku()).isEqualTo(DEFAULT_SKU);
         assertThat(testSkuBundle.getScore()).isEqualTo(DEFAULT_SCORE);
         assertThat(testSkuBundle.getSource()).isEqualTo(DEFAULT_SOURCE);
     }
@@ -144,10 +144,10 @@ public class SkuBundleResourceIntTest {
 
     @Test
     @Transactional
-    public void checkParentSkuIsRequired() throws Exception {
+    public void checkSkuIsRequired() throws Exception {
         int databaseSizeBeforeTest = skuBundleRepository.findAll().size();
         // set the field null
-        skuBundle.setParentSku(null);
+        skuBundle.setSku(null);
 
         // Create the SkuBundle, which fails.
 
@@ -171,7 +171,7 @@ public class SkuBundleResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(skuBundle.getId().intValue())))
-            .andExpect(jsonPath("$.[*].parentSku").value(hasItem(DEFAULT_PARENT_SKU.toString())))
+            .andExpect(jsonPath("$.[*].sku").value(hasItem(DEFAULT_SKU.toString())))
             .andExpect(jsonPath("$.[*].score").value(hasItem(DEFAULT_SCORE.doubleValue())))
             .andExpect(jsonPath("$.[*].source").value(hasItem(DEFAULT_SOURCE.toString())));
     }
@@ -187,7 +187,7 @@ public class SkuBundleResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(skuBundle.getId().intValue()))
-            .andExpect(jsonPath("$.parentSku").value(DEFAULT_PARENT_SKU.toString()))
+            .andExpect(jsonPath("$.sku").value(DEFAULT_SKU.toString()))
             .andExpect(jsonPath("$.score").value(DEFAULT_SCORE.doubleValue()))
             .andExpect(jsonPath("$.source").value(DEFAULT_SOURCE.toString()));
     }
@@ -213,7 +213,7 @@ public class SkuBundleResourceIntTest {
         // Disconnect from session so that the updates on updatedSkuBundle are not directly saved in db
         em.detach(updatedSkuBundle);
         updatedSkuBundle
-            .parentSku(UPDATED_PARENT_SKU)
+            .sku(UPDATED_SKU)
             .score(UPDATED_SCORE)
             .source(UPDATED_SOURCE);
 
@@ -226,7 +226,7 @@ public class SkuBundleResourceIntTest {
         List<SkuBundle> skuBundleList = skuBundleRepository.findAll();
         assertThat(skuBundleList).hasSize(databaseSizeBeforeUpdate);
         SkuBundle testSkuBundle = skuBundleList.get(skuBundleList.size() - 1);
-        assertThat(testSkuBundle.getParentSku()).isEqualTo(UPDATED_PARENT_SKU);
+        assertThat(testSkuBundle.getSku()).isEqualTo(UPDATED_SKU);
         assertThat(testSkuBundle.getScore()).isEqualTo(UPDATED_SCORE);
         assertThat(testSkuBundle.getSource()).isEqualTo(UPDATED_SOURCE);
     }

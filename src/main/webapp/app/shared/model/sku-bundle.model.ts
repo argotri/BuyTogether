@@ -7,12 +7,12 @@ export const enum Source {
 
 export interface ISkuBundle {
     id?: number;
-    parentSku?: string;
+    sku?: string;
     score?: number;
     source?: Source;
     skuList?: ISkuList;
 }
 
 export class SkuBundle implements ISkuBundle {
-    constructor(public id?: number, public parentSku?: string, public score?: number, public source?: Source, public skuList?: ISkuList) {}
+    constructor(public id?: number, public sku?: string, public score?: number, public source?: Source, public skuList?: ISkuList) {}
 }

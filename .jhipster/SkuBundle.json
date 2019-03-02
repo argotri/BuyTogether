@@ -2,7 +2,7 @@
     "name": "SkuBundle",
     "fields": [
         {
-            "fieldName": "parentSku",
+            "fieldName": "sku",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"

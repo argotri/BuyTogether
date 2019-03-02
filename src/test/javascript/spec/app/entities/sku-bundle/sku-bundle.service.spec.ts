@@ -55,7 +55,7 @@ describe('Service Tests', () => {
             it('should update a SkuBundle', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        parentSku: 'BBBBBB',
+                        sku: 'BBBBBB',
                         score: 1,
                         source: 'BBBBBB'
                     },
@@ -74,7 +74,7 @@ describe('Service Tests', () => {
             it('should return a list of SkuBundle', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        parentSku: 'BBBBBB',
+                        sku: 'BBBBBB',
                         score: 1,
                         source: 'BBBBBB'
                     },

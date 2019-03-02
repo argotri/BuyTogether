@@ -19,6 +19,14 @@ import { RouterModule } from '@angular/router';
             {
                 path: 'sku-bundle',
                 loadChildren: './sku-bundle/sku-bundle.module#BuyTogetherSkuBundleModule'
+            },
+            {
+                path: 'sku-list',
+                loadChildren: './sku-list/sku-list.module#BuyTogetherSkuListModule'
+            },
+            {
+                path: 'sku-bundle',
+                loadChildren: './sku-bundle/sku-bundle.module#BuyTogetherSkuBundleModule'
             }
             /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
         ])

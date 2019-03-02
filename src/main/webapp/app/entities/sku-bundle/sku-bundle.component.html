@@ -15,7 +15,7 @@
             <thead>
             <tr>
             <th><span>ID</span></th>
-            <th><span>Parent Sku</span></th>
+            <th><span>Sku</span></th>
             <th><span>Score</span></th>
             <th><span>Source</span></th>
             <th><span>Sku List</span></th>
@@ -25,7 +25,7 @@
             <tbody>
             <tr *ngFor="let skuBundle of skuBundles ;trackBy: trackId">
                 <td><a [routerLink]="['/sku-bundle', skuBundle.id, 'view' ]">{{skuBundle.id}}</a></td>
-                <td>{{skuBundle.parentSku}}</td>
+                <td>{{skuBundle.sku}}</td>
                 <td>{{skuBundle.score}}</td>
                 <td>{{skuBundle.source}}</td>
                 <td>

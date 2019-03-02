@@ -10,12 +10,12 @@
                         [(ngModel)]="skuBundle.id" readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_parentSku">Parent Sku</label>
-                    <input type="text" class="form-control" name="parentSku" id="field_parentSku"
-                        [(ngModel)]="skuBundle.parentSku" required/>
-                    <div [hidden]="!(editForm.controls.parentSku?.dirty && editForm.controls.parentSku?.invalid)">
+                    <label class="form-control-label" for="field_sku">Sku</label>
+                    <input type="text" class="form-control" name="sku" id="field_sku"
+                        [(ngModel)]="skuBundle.sku" required/>
+                    <div [hidden]="!(editForm.controls.sku?.dirty && editForm.controls.sku?.invalid)">
                         <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.parentSku?.errors?.required">
+                        [hidden]="!editForm.controls.sku?.errors?.required">
                         This field is required.
                         </small>
                     </div>

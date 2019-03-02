@@ -25,8 +25,8 @@ public class SkuBundle implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "parent_sku", nullable = false)
-    private String parentSku;
+    @Column(name = "sku", nullable = false)
+    private String sku;
 
     @Column(name = "score")
     private Float score;
@@ -48,17 +48,17 @@ public class SkuBundle implements Serializable {
         this.id = id;
     }
 
-    public String getParentSku() {
-        return parentSku;
+    public String getSku() {
+        return sku;
     }
 
-    public SkuBundle parentSku(String parentSku) {
-        this.parentSku = parentSku;
+    public SkuBundle sku(String sku) {
+        this.sku = sku;
         return this;
     }
 
-    public void setParentSku(String parentSku) {
-        this.parentSku = parentSku;
+    public void setSku(String sku) {
+        this.sku = sku;
     }
 
     public Float getScore() {
@@ -125,7 +125,7 @@ public class SkuBundle implements Serializable {
     public String toString() {
         return "SkuBundle{" +
             "id=" + getId() +
-            ", parentSku='" + getParentSku() + "'" +
+            ", sku='" + getSku() + "'" +
             ", score=" + getScore() +
             ", source='" + getSource() + "'" +
             "}";

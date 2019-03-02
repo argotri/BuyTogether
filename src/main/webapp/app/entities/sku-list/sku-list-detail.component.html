@@ -13,12 +13,6 @@
                 <dd>
                     <span>{{skuList.addedBy}}</span>
                 </dd>
-                <dt><span>Sku Bundle</span></dt>
-                <dd>
-                    <div *ngIf="skuList.skuBundle">
-                        <a [routerLink]="['/sku-bundle', skuList.skuBundle?.id, 'view']">{{skuList.skuBundle?.id}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

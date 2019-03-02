@@ -17,6 +17,12 @@
                 <dd>
                     <span>{{skuBundle.source}}</span>
                 </dd>
+                <dt><span>Sku List</span></dt>
+                <dd>
+                    <div *ngIf="skuBundle.skuList">
+                        <a [routerLink]="['/sku-list', skuBundle.skuList?.id, 'view']">{{skuBundle.skuList?.id}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

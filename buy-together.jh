@@ -12,7 +12,7 @@ entity SkuBundle{
 }
 
 relationship OneToMany{
-	SkuBundle{parentSku} to SkuList
+	SkuList to SkuBundle
 }
 
 enum Source {

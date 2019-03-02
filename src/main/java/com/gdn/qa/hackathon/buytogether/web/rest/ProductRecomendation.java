@@ -6,6 +6,7 @@ import com.gdn.qa.hackathon.buytogether.repository.SkuBundleRepository;
 import com.gdn.qa.hackathon.buytogether.repository.SkuListRepository;
 import com.gdn.qa.hackathon.buytogether.service.xproduct.XproductServices;
 import com.gdn.qa.hackathon.buytogether.web.rest.model.SkuRecomendationResponse;
+import com.gdn.qa.hackathon.buytogether.web.rest.model.SkuRecomendationResponseBuilder;
 import com.gdn.qa.hackathon.buytogether.web.rest.model.xproduct.Item;
 import com.gdn.qa.hackathon.buytogether.web.rest.model.xproduct.Price;
 import com.gdn.qa.hackathon.buytogether.web.rest.model.xproduct.XproductResponse;
@@ -54,12 +55,11 @@ public class ProductRecomendation {
             try {
                 XproductResponse product = xproductServices.getXproductDetailBySku(skuBundle.getSku());
                 skuRecomendationResponses
-                    .add(SkuRecomendationResponse.builder()
-                        .image(product.getValue().getProduct().getMasterDataProduct().getMasterDataProductImages().stream().filter(masterDataProductImage -> masterDataProductImage.getMainImage()).findAny().get().getLocationPath())
-                        .price(getLowestPrice(product.getValue().getItems()).getPrice().stream().min(Comparator.comparing(Price::getOfferPrice)).get().getOfferPrice())
-                        .productName(product.getValue().getProduct().getMasterDataProduct().getProductName())
-                        .productSku(getLowestPrice(product.getValue().getItems()).getProductSku())
-                        .build());
+                    .add(new SkuRecomendationResponseBuilder()
+                        .setImage(product.getValue().getProduct().getMasterDataProduct().getMasterDataProductImages().stream().filter(masterDataProductImage -> masterDataProductImage.getMainImage()).findAny().get().getLocationPath())
+                        .setPrice(getLowestPrice(product.getValue().getItems()).getPrice().stream().min(Comparator.comparing(Price::getOfferPrice)).get().getOfferPrice())
+                        .setProductName(product.getValue().getProduct().getMasterDataProduct().getProductName())
+                        .setProductSku(getLowestPrice(product.getValue().getItems()).getProductSku()).createSkuRecomendationResponse());
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }

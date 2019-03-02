@@ -15,10 +15,10 @@
     ],
     "relationships": [
         {
-            "relationshipName": "skuBundle",
+            "relationshipType": "one-to-many",
             "otherEntityName": "skuBundle",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityRelationshipName": "skuList",
+            "relationshipName": "skuBundle"
         }
     ],
     "changelogDate": "20190302050033",

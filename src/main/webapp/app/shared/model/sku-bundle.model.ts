@@ -10,15 +10,9 @@ export interface ISkuBundle {
     parentSku?: string;
     score?: number;
     source?: Source;
-    parentSkus?: ISkuList[];
+    skuList?: ISkuList;
 }
 
 export class SkuBundle implements ISkuBundle {
-    constructor(
-        public id?: number,
-        public parentSku?: string,
-        public score?: number,
-        public source?: Source,
-        public parentSkus?: ISkuList[]
-    ) {}
+    constructor(public id?: number, public parentSku?: string, public score?: number, public source?: Source, public skuList?: ISkuList) {}
 }

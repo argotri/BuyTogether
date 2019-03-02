@@ -33,6 +33,13 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label class="form-control-label" for="field_skuList">Sku List</label>
+                    <select class="form-control" id="field_skuList" name="skuList" [(ngModel)]="skuBundle.skuList" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="skuListOption.id === skuBundle.skuList?.id ? skuBundle.skuList : skuListOption" *ngFor="let skuListOption of skulists; trackBy: trackSkuListById">{{skuListOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

@@ -26,13 +26,6 @@
                         [(ngModel)]="skuList.addedBy" />
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="field_skuBundle">Sku Bundle</label>
-                    <select class="form-control" id="field_skuBundle" name="skuBundle" [(ngModel)]="skuList.skuBundle" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="skuBundleOption.id === skuList.skuBundle?.id ? skuList.skuBundle : skuBundleOption" *ngFor="let skuBundleOption of skubundles; trackBy: trackSkuBundleById">{{skuBundleOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

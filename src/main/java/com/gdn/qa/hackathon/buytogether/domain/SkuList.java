@@ -1,12 +1,14 @@
 package com.gdn.qa.hackathon.buytogether.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -29,10 +31,8 @@ public class SkuList implements Serializable {
     @Column(name = "added_by")
     private String addedBy;
 
-    @ManyToOne
-    @JsonIgnoreProperties("parentSkus")
-    private SkuBundle skuBundle;
-
+    @OneToMany(mappedBy = "skuList")
+    private Set<SkuBundle> skuBundles = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -68,17 +68,29 @@ public class SkuList implements Serializable {
         this.addedBy = addedBy;
     }
 
-    public SkuBundle getSkuBundle() {
-        return skuBundle;
+    public Set<SkuBundle> getSkuBundles() {
+        return skuBundles;
     }
 
-    public SkuList skuBundle(SkuBundle skuBundle) {
-        this.skuBundle = skuBundle;
+    public SkuList skuBundles(Set<SkuBundle> skuBundles) {
+        this.skuBundles = skuBundles;
         return this;
     }
 
-    public void setSkuBundle(SkuBundle skuBundle) {
-        this.skuBundle = skuBundle;
+    public SkuList addSkuBundle(SkuBundle skuBundle) {
+        this.skuBundles.add(skuBundle);
+        skuBundle.setSkuList(this);
+        return this;
+    }
+
+    public SkuList removeSkuBundle(SkuBundle skuBundle) {
+        this.skuBundles.remove(skuBundle);
+        skuBundle.setSkuList(null);
+        return this;
+    }
+
+    public void setSkuBundles(Set<SkuBundle> skuBundles) {
+        this.skuBundles = skuBundles;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

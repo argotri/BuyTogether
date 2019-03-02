@@ -4,9 +4,9 @@ export interface ISkuList {
     id?: number;
     skuCode?: string;
     addedBy?: string;
-    skuBundle?: ISkuBundle;
+    skuBundles?: ISkuBundle[];
 }
 
 export class SkuList implements ISkuList {
-    constructor(public id?: number, public skuCode?: string, public addedBy?: string, public skuBundle?: ISkuBundle) {}
+    constructor(public id?: number, public skuCode?: string, public addedBy?: string, public skuBundles?: ISkuBundle[]) {}
 }

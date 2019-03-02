@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-sku-bundle-heading">Create or edit a Sku Bundle</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!skuBundle.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="skuBundle.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_parentSku">Parent Sku</label>
+                    <input type="text" class="form-control" name="parentSku" id="field_parentSku"
+                        [(ngModel)]="skuBundle.parentSku" required/>
+                    <div [hidden]="!(editForm.controls.parentSku?.dirty && editForm.controls.parentSku?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.parentSku?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_score">Score</label>
+                    <input type="number" class="form-control" name="score" id="field_score"
+                        [(ngModel)]="skuBundle.score" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_source">Source</label>
+                    <select class="form-control" name="source" [(ngModel)]="skuBundle.source" id="field_source" >
+                        <option value="MANUAL_INPUT">MANUAL_INPUT</option>
+                        <option value="SYSTEM_INPUT">SYSTEM_INPUT</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

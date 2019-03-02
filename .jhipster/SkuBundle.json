@@ -1,0 +1,38 @@
+{
+    "name": "SkuBundle",
+    "fields": [
+        {
+            "fieldName": "parentSku",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "score",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "source",
+            "fieldType": "Source",
+            "fieldValues": "MANUAL_INPUT,SYSTEM_INPUT"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "skuList",
+            "otherEntityRelationshipName": "skuBundle",
+            "relationshipName": "parentSku"
+        }
+    ],
+    "changelogDate": "20190302050034",
+    "entityTableName": "sku_bundle",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

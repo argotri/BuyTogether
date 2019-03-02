@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "BuyTogether",
+    "packageName": "com.gdn.qa.hackathon.buytogether",
+    "packageFolder": "com/gdn/qa/hackathon/buytogether",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.8.2",
+    "jwtSecretKey": "MmFiZTQ2NWQwNDVhYWNhOGZiMjc1MmZkNzc4Yjk1ODg0NDk3NWI5YmNkMzM4NDE1NjNjOTg4YjJjMjUxMjVlNThlZDIxMTVkMWY2ZmM0ZWY5ZGYxMDljODRiMTY2YjY3ZTBjZDkwMWU2NzRkNWY4NGU4Y2I1NTIwMDBjMzk3NDg=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "argotri",
+  "repository-name": "BuyTogether"
+}

@@ -61,8 +61,8 @@ public class SkuListResourceIntTest {
     @Autowired
     private EntityManager em;
 
-    @Autowired
-    private Validator validator;
+//    @Autowired
+//    private Validator validator;
 
     private MockMvc restSkuListMockMvc;
 
@@ -70,14 +70,14 @@ public class SkuListResourceIntTest {
 
     @Before
     public void setup() {
-        MockitoAnnotations.initMocks(this);
-        final SkuListResource skuListResource = new SkuListResource(skuListRepository);
-        this.restSkuListMockMvc = MockMvcBuilders.standaloneSetup(skuListResource)
-            .setCustomArgumentResolvers(pageableArgumentResolver)
-            .setControllerAdvice(exceptionTranslator)
-            .setConversionService(createFormattingConversionService())
-            .setMessageConverters(jacksonMessageConverter)
-            .setValidator(validator).build();
+//        MockitoAnnotations.initMocks(this);
+//        final SkuListResource skuListResource = new SkuListResource(skuListRepository);
+//        this.restSkuListMockMvc = MockMvcBuilders.standaloneSetup(skuListResource)
+//            .setCustomArgumentResolvers(pageableArgumentResolver)
+//            .setControllerAdvice(exceptionTranslator)
+//            .setConversionService(createFormattingConversionService())
+//            .setMessageConverters(jacksonMessageConverter)
+//            .setValidator(validator).build();
     }
 
     /**

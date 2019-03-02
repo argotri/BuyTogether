@@ -5,7 +5,7 @@
     <groupId>com.gdn.qa.hackathon.buytogether</groupId>
     <artifactId>buy-together</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>Buy Together</name>
 
     <repositories>
@@ -305,6 +305,13 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.6</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

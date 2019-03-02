@@ -6,7 +6,7 @@ entity SkuList {
 }
 
 entity SkuBundle{
-	parentSku String required,
+	sku String required,
     score Float,
     source Source
 }
